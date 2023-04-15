@@ -12,6 +12,7 @@ import Contoroller.SearchFile;
 import Models.Book;
 import Models.BorrowingList;
 import Models.Searching;
+import Models.Sorting;
 import Models.WaitingList;
 import java.util.Scanner;
 import java.io.BufferedReader;
@@ -111,7 +112,43 @@ public class Library {
         String calling11 = myInput.getUserText("Which author name would you like to search?");
         String lineaResult2 =  mySearch.linearSearchbyname(books, calling11);
                 System.out.println("test result" +  lineaResult2 );
+                
+                
+                
+                       //list books by titles and authors     
+           Sorting bubble = new Sorting();
+       
+           Book[] bookArr = new Book[books.size()];
+       
+           for(int i = 0; i<books.size();i++){
+       
+           bookArr[i]=books.get(i);
+    }
+           bubble.bubbleSort(bookArr);
+ 
+           for (Book b : bookArr) {
+                System.out.println("Title: " + b.getBook_title());
+                System.out.println(" Written By : " + b.getAuthor_first_name() + " " + b.getAuthor_last_name());
+       }
 
+//                   ArrayList<Student> students = RF.loadData2();
+        Sorting insert = new Sorting();
+        
+        Student[] studentArr = new Student[students.size()];
+            for (int i = 0; i < students.size(); i++) {
+                studentArr[i] = students.get(i);
+            }
+                insert.insertionSort(studentArr);
+            Student student = null;
+            for (Student s : studentArr) {
+            if(student == null || !student.getStudentFirst().equals(s.getStudentFirst())){
+                System.out.println("Student first Name: " + s.getStudentFirst());
+            System.out.println("Students full Name: " + s.getStudentFirst() + " " + s.getStudentLast() );
+}
+            student = s;
+            }
+       }
+    }
 //       LibraryMenu LM = new LibraryMenu() ; 
 //       System.out.println("show menu" +  LM); //? 
 //       
