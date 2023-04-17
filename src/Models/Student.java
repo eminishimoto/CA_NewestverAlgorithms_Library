@@ -4,6 +4,8 @@
  */
 package Models;
 
+import java.util.Objects;
+
 /**
  *
  * @author emi
@@ -34,10 +36,9 @@ public class Student {
 
     @Override
     public String toString() {
-        return this.studentFirst;
+        return "Student{" + "studentId=" + studentId + ", studentFirst=" + studentFirst + ", studentLast=" + studentLast + ", gender=" + gender + ", country=" + country + '}';
     }
 
-    
     
     public String getStudentId() {
         return studentId;
@@ -50,26 +51,10 @@ public class Student {
     public String getStudentLast() {
         return studentLast;
     }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-//    public String[] getBorrowinglist(String studentId) {
-//        return borrowinglist;
-//        
-//    }
- 
     
-//    /**
-//     *
-//     * @param bookid
-//     */
-//    public void setBorrowinglist(Book bookid) {
-//        this.borrowinglist = borrowinglist;
-//    }
+    public String getStudentFullname() {
+        return studentFirst  + " " + studentLast;
+    }
+
+
 }

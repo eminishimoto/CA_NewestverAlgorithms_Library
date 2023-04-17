@@ -16,40 +16,55 @@ import java.util.Scanner;
  *
  * @author emi
  */
+//menue methods 
 public class LibraryMenu {
 
-    
-//void or String?
-    public  LibraryMenu() {
+    // Show message  
+    public LibraryMenu() { //void or String?
         
-    
-        // Creating object of Scanner class to take input from user 
-    Scanner input = new Scanner(System.in);
-    
-    // Show menu omessage
         System.out.println(
-            "********************Welcome to the Library!********************");
+                "********************Welcome to the Library!********************");
         System.out.println(
-            "                  Select From The Following Options:               ");
+                "                  Select From The Following Options:               ");
         System.out.println(
-            "***************************************************************");
-        
+                "***************************************************************");
+    }
+    // Display option. used inseide optionSwitch() method
+    public void dispMenu() {
+        System.out.println(
+                "-----------------------------------------------------------------------------");
+        System.out.println("Enter 0 to ");
+        System.out.println("Enter 1 to ");
+        System.out.println("Enter 2 to ");
+        System.out.println("Enter 3 to ");
+        System.out.println("Enter 4 to ");
+        System.out.println("Enter 5 to ");
+        System.out.println("Enter 6 to ");
+        System.out.println("Enter 7 to  ");
+        System.out.println("Enter 8 to ");
+        System.out.println("------------------------------------------------------------------");
+    }
+
 //rEFERENCEhttps://codereview.stackexchange.com/questions/206615/a-student-library-program-in-java
 // https://www.scribd.com/document/636334916/20MID0209-JAVA-DA-1#  
-//later    //??/
-//     // Creating object of book class
-//        Book ob = new Book();
-//    // Creating object of students class
-//        Student obStudent = new Student();
+    
+    //Ask user to select from above optuons using switch  
+    public void optionSwitch() {
+        // Creating object of Scanner class to take input from user 
+        Scanner input = new Scanner(System.in);
+        // Creating object of book class
+        Book ob = new Book();
+        // Creating object of students class
+        Student obStudent = new Student();
 // 
-//        int choice;
-//        int searchChoice1;
-//         int searchChoice3;
-//        // Creating menu
-//        // using do-while loop
+        int choice;
+        int searchChoice1;
+        int searchChoice3;
+        // Creating menu
+        // using do-while loop
 //        do {
 // 
-//            ob.dispMenu();
+//            dispMenu();//above
 //            choice = input.nextInt();
 // 
 //            // Switch case
@@ -140,11 +155,7 @@ public class LibraryMenu {
 //        // checking case entered value is not zero
 //        while (choice != 0);
 //    
-    
-    
-
-
-
 
     }
 }
+        

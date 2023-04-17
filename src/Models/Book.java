@@ -19,7 +19,7 @@ public class Book implements Comparable{  //data = MOCK_DATA.csv
 //    private String genre;//no neeed
     
     //def  constructor
-//    public Book() {}
+    public Book() {}
     //constructor
     public Book(String bookid, String author_first_name, String author_last_name, String book_title) {
         this.bookid = bookid;
@@ -42,12 +42,22 @@ public class Book implements Comparable{  //data = MOCK_DATA.csv
     public String getAuthor_last_name() {
         return author_last_name;
     }
+    public String getAuthor_Fullname(){
+        return author_first_name + " " + author_last_name;
+    }
 
     public String getBook_title() {
         return book_title;
     }
+    @Override
+    public String toString() {
+        return "Book{" + "bookid=" + bookid + ", author_first_name=" + author_first_name + ", author_last_name=" + author_last_name + ", book_title=" + book_title + '}';
+    }
 
 
+    public void showInfo() {
+        System.out.println("Book{" + "bookid=" + bookid + ", author_first_name=" + author_first_name + ", author_last_name=" + author_last_name + ", book_title=" + book_title + '}');
+    }  
     
 //    //setter
 //    public void setId(String id) {
@@ -70,10 +80,7 @@ public class Book implements Comparable{  //data = MOCK_DATA.csv
 //        this.genre = genre;
 //    }
   
-    @Override
-    public String toString() {
-        return book_title;
-    }
+
 
     @Override
     public int compareTo(Object o) {

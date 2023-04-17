@@ -28,7 +28,7 @@ public class Readfiles {
         System.out.println("The Book file is stored" +" \n"+ records + " \n");
         
         ArrayList<Student> records2 = loadData2();
-        System.out.println("The Student file is stored" + " \n" + records2);
+        System.out.println("The Student file is stored" + " \n" + records2 + " \n");
         
 //         System.out.println("What Book do you need?" +"\n");
 //        System.out.println( records.get(1).getBook_title()); 
@@ -70,8 +70,8 @@ public class Readfiles {
 
 //                genre = data[4];//position4
                 
-                //added elements into Arraylist records?
-                records.add(new Book(bookid, author_first_name, author_last_name, book_title));
+                //adding elements into Arraylist records                                               some title has " . to remove them https://tech.pjin.jp/blog/2018/04/28/java_how_to_escape/
+                records.add(new Book(bookid, author_first_name, author_last_name, book_title.replace("\"", "")));
                 contentLine = br.readLine();
             }
             //use try catch in case there is no name which are given?
@@ -79,7 +79,7 @@ public class Readfiles {
         } catch (IOException ex) {
             Logger.getLogger(Library.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //now record has all data??
+        //now record has all data
         return records;
     }
 
@@ -138,10 +138,6 @@ public class Readfiles {
 //        }
 //
 //        System.out.println(lines);
-     
-
-
-  
 
 }
 

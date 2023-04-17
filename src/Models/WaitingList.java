@@ -7,7 +7,7 @@ package Models;
 
 public class WaitingList implements Queue {
 
-    // need to create method
+    // attribute
     private String[] data;
     private int queueSize;//number of element in my que
     private int capacity;
@@ -59,7 +59,7 @@ public class WaitingList implements Queue {
 
         //save the front value 
         String toReturn = data[front]; //set front data as roReturn
-        data[front] = null; // delate element できてしまったデータを一回ゼロにする？
+        data[front] = null; // delate element 
         front++;
         queueSize--;  //
         return toReturn;
@@ -67,7 +67,7 @@ public class WaitingList implements Queue {
 
     @Override
     public String First() {
-        if (queueSize == 0) { //quesize0データがなければ返すものはない
+        if (queueSize == 0) { //quesize0
             return null;//can borrow the book
         }
 

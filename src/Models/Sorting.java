@@ -6,7 +6,7 @@ package Models;
 
 /**
  *
- * @author User
+ * @author Anny
  */
 public class Sorting {
     

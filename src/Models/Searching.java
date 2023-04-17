@@ -88,33 +88,124 @@ public class Searching {
  //search by title                                     //this array is record
         public String linearSearchbytitle(ArrayList<Book> array, String targetTitle){
         
-        // Going one by one the elements in the array
-        for(int i = 0; i < array.size(); i++){ //i is position
-            System.out.println("Testing: " + array.get(i).getBook_title());
-            // When the element is found, stop the loop and return the index
-            if(array.get(i).getBook_title().equalsIgnoreCase(targetTitle)){
-                return "The Title Found : "+array;//show array=info of the book
+                    System.out.println("-----------");
+                    System.out.println("-- Searching by Book Title --");
+        //eliminate space and comma           
+        String NewtargetTitle = targetTitle.replace(" ", "").replace(",", "");
+        
+        // searching one by one the elements in the array
+        for(int i = 1; i < array.size(); i++){ //i is position
+            System.out.println( "..." + array.get(i).getBook_title());//shows elements until the target found. not neccesarry but good to see processing
+            // When the element matched with the target, stop the loop and return the index
+            if((array.get(i).getBook_title().replace(" ", "").equalsIgnoreCase(NewtargetTitle))){
+                return "The Title Found : "+ array.get(i).toString();//show array=info of the book  
+                
                 
             }            
-        }//if the element is not found, show message. return position:-1 means the element doen't exist
-        return "The Title not found";  
+        }
+        //if the element is not found, show message. return position:-1 means the element doen't exist
+        return "The Title NOT found. Spelling correct? Try again.";  
+  
 }
                                     
  //search by name                                     //this array is record
     public String linearSearchbyname(ArrayList<Book> array, String targetName){
         
+         System.out.println("-----------");
+         System.out.println("-- Searching by Author Name --");
+        
+        String NewtargetName = targetName.replace(" ", "");
         // Going one by one the elements in the array
-        for(int i = 0; i < array.size(); i++){ //i is position
-            System.out.println("Testing: " + array.get(i).getAuthor_first_name());
+        for(int i = 1; i < array.size(); i++){ //i is position
+            System.out.println( "..." + array.get(i).getAuthor_Fullname());
             // When the element is found, stop the loop and return the index
-            if(array.get(i).getAuthor_first_name().equalsIgnoreCase(targetName)){
-                return "The Name Found :"+array;//show array=info of the book
+            if(array.get(i).getAuthor_Fullname().replace(" ", "").equalsIgnoreCase(NewtargetName )){
+                return "The Name Found : "+ array.get(i).getAuthor_Fullname().toString();//show array=info of the book
                 
             }            
         }//if the element is not found, show message. return position:-1 means the element doen't exist
-        return "The Name not found";
+        return "The Name NOT found. Spelling correct? Try again.";
+}
+ 
+  //search by StudentId                                     //this array is record
+    public String linearSearchbyStudentId(ArrayList<Student> array, String targetId){
+        
+         System.out.println("-----------");
+         System.out.println("-- Searching by Student ID --");
+        
+        String NewtargetId = targetId.replace(" ", "");
+        // Going one by one the elements in the array
+        for(int i = 0; i < array.size(); i++){ //i is position
+            System.out.println( "..." + array.get(i).getStudentId());
+            // When the element is found, stop the loop and return the index
+            if(array.get(i).getStudentId().replace(" ", "").equalsIgnoreCase(NewtargetId )){
+                return "The ID Found : "+array.get(i).getStudentId().toString();//show array=info of the book
+                
+            }            
+        }//if the element is not found, show message. return position:-1 means the element doen't exist
+        return "The ID NOT found. Input correct? Try again.";
 }
     
+  //search by name                                     //this array is record
+    public String linearSearchbyStudentname(ArrayList<Student> array, String targetName){
+        
+         System.out.println("-----------");
+         System.out.println("-- Searching by Student Name --");
+        
+        String NewtargetName = targetName.replace(" ", "");
+        // Going one by one the elements in the array
+        for(int i = 0; i < array.size(); i++){ //i is position
+            System.out.println( "..." + array.get(i).getStudentFullname());
+            // When the element is found, stop the loop and return the index
+            if(array.get(i).getStudentFullname().replace(" ", "").equalsIgnoreCase(NewtargetName )){
+                return "The Name Found : "+ array.get(i).getStudentFullname().toString();//show array=info of the book
+                
+            }            
+        }//if the element is not found, show message. return position:-1 means the element doen't exist
+        return "The Name NOT found. Spelling correct? Try again.";
+}    
     
+    
+    
+    
+  
+}
 
-}
+
+
+//    static int binarySearch(String[] arr, String x)
+//    {
+//        
+//        int left = 0, 
+//        right = arr.length - 1;
+//        while (left <= right) {
+//            int middle = left + (right - left) / 2;
+// 
+//            int res = x.compareTo(arr[middle]);
+// 
+//            // Check if x is present at mid
+//            if (res == 0)
+//                return middle;
+// 
+//            // If x greater, ignore left half
+//            if (res > 0)
+//                left = middle + 1;
+// 
+//            // If x is smaller, ignore right half
+//            else
+//                right = middle - 1;
+//        }
+// 
+//        return -1;
+//    }
+//    
+//     String[] arr = { "contribute", "geeks", "ide", "practice"}; //declear array
+//        String x = "geeks";//define target
+//        int result = binarySearch(arr, x);
+// 
+//        if (result == -1)
+//            System.out.println("Element not present");
+//        else
+//            System.out.println("Element found at "
+//                              + "index " + result);
+//}
