@@ -13,6 +13,13 @@ import Models.Book;
 public class BookContoroller {
     
     Book books = new Book();
+    
+    public void test(){
+        Book b1 = new Book();
+        System.out.println(b1.getAuthor_first_name());
+        
+        
+    }
 
 
 }

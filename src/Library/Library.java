@@ -57,17 +57,22 @@ public class Library {
 
  //show menu      
         LibraryMenu lmenu= new LibraryMenu ();
+        
+       //ask password- anything above 4 letters/numbers are fine
+       lmenu.password();
+       
+       //show option menu
        lmenu.optionSwitch(); 
        
-        //Read files  
-        Readfiles RF = new Readfiles(); //?new Readfiles is better?
-        //     System.out.println("RF.loadData()"+RF.loadData());
-        //     System.out.println("RF.toString()"+RF.toString());
-        System.out.println(RF.toString());
-
-        ArrayList<Book> books = RF.loadData(); //store the Bookrecord from Readfile in books to make it work in this clas
-        ArrayList<Student> students = RF.loadData2();//store the Studentrecord 
-//               SearchFile s1 = new SearchFile(calling1);         
+//Read files  --> inside Library menu
+//        Readfiles RF = new Readfiles(); //?new Readfiles is better?
+//        //     System.out.println("RF.loadData()"+RF.loadData());
+//        //     System.out.println("RF.toString()"+RF.toString());
+//        System.out.println(RF.toString());
+//
+//        ArrayList<Book> books = RF.loadData(); //store the Bookrecord from Readfile in books to make it work in this clas
+//        ArrayList<Student> students = RF.loadData2();//store the Studentrecord 
+////               SearchFile s1 = new SearchFile(calling1);         
 
         InputUtilsLB myInput = new InputUtilsLB();
 //   BorrowingList     test
@@ -161,50 +166,53 @@ public class Library {
 
 
 
-        Searching mySearch = new Searching();//want to use book array
-//Binary waiting for sorting part
-//        String calling9 = myInput.getUserText("Which Title would you like to search?");
-//        String lineaResult =  mySearch.binarySearch(books, calling9);//store the result from Searching class 
-//        System.out.println("test result" +  lineaResult );
+//        Searching mySearch = new Searching();//want to use book array
+////Binary waiting for sorting part
+////        String calling9 = myInput.getUserText("Which Title would you like to search?");
+////        String lineaResult =  mySearch.binarySearch(books, calling9);//store the result from Searching class 
+////        System.out.println("test result" +  lineaResult );
 
-
-//Linear Studebt
-        String calling12 = myInput.getUserText("Which Student name would you like to search?");
-        String lineaResult3 = mySearch.linearSearchbyStudentname(students, calling12);//store the result from Searching class 
-        System.out.println( lineaResult3);//result
-
-        String calling13 = myInput.getUserText("Which Student id  would you like to search?");
-        String lineaResult4 = mySearch.linearSearchbyStudentId(students, calling13);
-        System.out.println( lineaResult4);//result
-//Linear Book
-        String calling10 = myInput.getUserText("Which Title would you like to search?");
-        String lineaResult1 = mySearch.linearSearchbytitle(books, calling10);//store the result from Searching class 
-        System.out.println( lineaResult1);//result
-
-        String calling11 = myInput.getUserText("Which Author name would you like to search?");
-        String lineaResult2 = mySearch.linearSearchbyname(books, calling11);
-        System.out.println( lineaResult2);//result
+//--> inside Library menu
+////Linear Studebt
+//        String calling12 = myInput.getUserText("Which Student name would you like to search?");
+//        String lineaResult3 = mySearch.linearSearchbyStudentname(students, calling12);//store the result from Searching class 
+//        System.out.println( lineaResult3);//result
+//
+//        String calling13 = myInput.getUserText("Which Student id  would you like to search?");
+//        String lineaResult4 = mySearch.linearSearchbyStudentId(students, calling13);
+//        System.out.println( lineaResult4);//result
+////Linear Book
+//        String calling10 = myInput.getUserText("Which Title would you like to search?");
+//        String lineaResult1 = mySearch.linearSearchbytitle(books, calling10);//store the result from Searching class 
+//        System.out.println( lineaResult1);//result
+//
+//        String calling11 = myInput.getUserText("Which Author name would you like to search?");
+//        String lineaResult2 = mySearch.linearSearchbyname(books, calling11);
+//        System.out.println( lineaResult2);//result
 
     
         
 
 
-
+//--> inside Library menu
 //list books by titles and authors     
-        Sorting bubble = new Sorting();
-
-        Book[] bookArr = new Book[books.size()];
-
-        for (int i = 0; i < books.size(); i++) {
-
-            bookArr[i] = books.get(i);
-        }
-        bubble.bubbleSort(bookArr);
-
-        for (Book b : bookArr) {
-            System.out.println("Title: " + b.getBook_title());
-            System.out.println(" Written By : " + b.getAuthor_first_name() + " " + b.getAuthor_last_name());
-        }
+//        Sorting bubble = new Sorting();
+//
+//        Book[] bookArr = new Book[books.size()];
+//
+//        for (int i = 0; i < books.size(); i++) {
+//
+//            bookArr[i] = books.get(i);
+//        }
+//        bubble.bubbleSort(bookArr);
+//
+//        for (Book b : bookArr) {
+//            System.out.println("Title: " + b.getBook_title());
+//            System.out.println(" Written By : " + b.getAuthor_first_name() + " " + b.getAuthor_last_name());
+//        }
+        
+        
+        
         //          ArrayList<Student> students = RF.loadData2();
 //            Sorting bubble1 = new Sorting();
 //       
@@ -223,21 +231,27 @@ public class Library {
         //      + " " + b.getStudentLast()
 
 //                   ArrayList<Student> students = RF.loadData2();
-        Sorting insert = new Sorting();
 
-        Student[] studentArr = new Student[students.size()];
-        for (int i = 0; i < students.size(); i++) {
-            studentArr[i] = students.get(i);
-        }
-        insert.insertionSort(studentArr);
-        Student student = null;
-        for (Student s : studentArr) {
-            if (student == null || !student.getStudentFirst().equals(s.getStudentFirst())) {
-                System.out.println("Student first Name: " + s.getStudentFirst());
-                System.out.println(" Students full Name: " + s.getStudentFirst() + " " + s.getStudentLast());
-            }
-            student = s;
-        }
+
+//--> inside Library menu
+//        Sorting insert = new Sorting();
+//
+//        Student[] studentArr = new Student[students.size()];
+//        for (int i = 0; i < students.size(); i++) {
+//            studentArr[i] = students.get(i);
+//        }
+//        insert.insertionSort(studentArr);
+//        Student student = null;
+//        for (Student s : studentArr) {
+//            if (student == null || !student.getStudentFirst().equals(s.getStudentFirst())) {
+//                System.out.println("Student first Name: " + s.getStudentFirst());
+//                System.out.println(" Students full Name: " + s.getStudentFirst() + " " + s.getStudentLast());
+//            }
+//            student = s;
+//        }
+ 
+
+
 
         //        for (int i = 0; i < students.size(); i++) {
 //        
@@ -252,12 +266,7 @@ public class Library {
 }
 
 
-//       LibraryMenu LM = new LibraryMenu() ; 
-//       System.out.println("show menu" +  LM); //? 
-//       
-//
-//       
-       
+
        
 
     

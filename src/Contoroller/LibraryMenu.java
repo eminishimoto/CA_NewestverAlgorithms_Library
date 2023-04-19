@@ -25,30 +25,47 @@ public class LibraryMenu {
 
     //Read files  
     Readfiles RF = new Readfiles(); //?new Readfiles is better?
-    //     System.out.println("RF.loadData()"+RF.loadData());
-    //     System.out.println("RF.toString()"+RF.toString());
 
     ArrayList<Book> books = RF.loadData(); //store the Bookrecord from Readfile in books to make it work in this clas
-    ArrayList<Student> students = RF.loadData2();//store the Studentrecord 
-//               SearchFile s1 = new SearchFile(calling1);         
+    ArrayList<Student> students = RF.loadData2();//store the Studentrecord       
 
     InputUtilsLB myInput = new InputUtilsLB();
+    Scanner myKB = new Scanner(System.in);//Scanner
 
-    // Show message  
+    // Show welcome message  
     public LibraryMenu() { //void or String?
 
         System.out.println(
                 "********************Welcome to the Library!********************");
         System.out.println(
-                "                  Select From The Following Options:               ");
+                "                                                               ");
         System.out.println(
                 "***************************************************************");
     }
 
+    //ask password for login
+    public void password() {
+
+        String password;//store password
+
+        System.out.println("\n Enter the password to login:");//output question
+
+        password = myKB.nextLine();//store input = password
+
+        if (password.length() < 4) {
+            System.out.println("\nInvaild. At least 4 characters.");
+        } else {
+            System.out.println("\n...Password valid \n");
+        }
+    }
+
     // Display option. used inseide optionSwitch() method
     public void dispMenu() {
+
         System.out.println(
-                "------------------------------------------------------------------");
+                "  \n               Select From The Following Options               ");
+        System.out.println(
+                "---------------------------------------------------------------");
         System.out.println("Enter 0 -- Exit Application");
         System.out.println("Enter 1 -- Search a Book");
         System.out.println("Enter 2 -- Sort Books");
@@ -57,7 +74,7 @@ public class LibraryMenu {
         System.out.println("Enter 5 -- Register a student has borrowed a book");
         System.out.println("Enter 6 -- Register a student has returned a book");
         System.out.println("Enter 7 -- Student book borrowing history");
-        System.out.println("------------------------------------------------------------------");
+        System.out.println("---------------------------------------------------------------");
     }
 
 //rEFERENCEhttps://codereview.stackexchange.com/questions/206615/a-student-library-program-in-java
@@ -82,10 +99,17 @@ public class LibraryMenu {
         do {
 
             dispMenu();//above
+            System.out.print("Enter an option: ");
             choice = input.nextInt();
 
             // Switch case
             switch (choice) {
+               
+                //Exit from library menu
+               case 0:
+
+                    System.out.println("...Exit program");
+                    break;
 
                 // Linearsearch
                 case 1:
@@ -99,16 +123,16 @@ public class LibraryMenu {
 //                    // Case
                         case 1:
                             //instead of this, could make this as a method in Searching class? mySearch.callmethod           
-                            String calling10 = myInput.getUserText("Which Title would you like to search?");
+                            String calling10 = myInput.getUserText("\n Which Title would you like to search?");
                             String lineaResult1 = mySearch.linearSearchbytitle(books, calling10);//store the result from Searching class 
-                            System.out.println(lineaResult1);//result
+                            System.out.println("\n" + lineaResult1);//result
                             break;
 // 
 //                    // Case
                         case 2:
-                            String calling11 = myInput.getUserText("Which Author name would you like to search?");
+                            String calling11 = myInput.getUserText("\n Which Author name would you like to search?");
                             String lineaResult2 = mySearch.linearSearchbyname(books, calling11);
-                            System.out.println(lineaResult2);//result
+                            System.out.println("\n" + lineaResult2);//result
                     }
                     break;
 
@@ -143,15 +167,15 @@ public class LibraryMenu {
 // 
 //                    // Case
                         case 1:
-                            String calling13 = myInput.getUserText("Which Student id  would you like to search?");
+                            String calling13 = myInput.getUserText("\n Which Student id  would you like to search?");
                             String lineaResult4 = mySearch.linearSearchbyStudentId(students, calling13);
-                            System.out.println(lineaResult4);
+                            System.out.println("\n" + lineaResult4);
                             break;
 //                    // Case
                         case 2:
-                            String calling12 = myInput.getUserText("Which Student name would you like to search?");
+                            String calling12 = myInput.getUserText("\n Which Student name would you like to search?");
                             String lineaResult3 = mySearch.linearSearchbyStudentname(students, calling12);//store the result from Searching class 
-                            System.out.println(lineaResult3);
+                            System.out.println("\n" + lineaResult3);
 
                     }
                     break;
@@ -176,36 +200,29 @@ public class LibraryMenu {
                     }
                     break;
 
-                
                 // Case
-            case 5:
+                case 5:
 //                student s = new student();
 //                obStudent.addStudent(s);
-                break;
+                    break;
 // 
                 // Case
-            case 6:
+                case 6:
 //                obStudent.showAllStudents();
-                break;
+                    break;
 // 
                 // Case
-            case 7:
+                case 7:
 //                obStudent.checkOutBook(ob);
-                break;
-// 
-                // Case
-            case 8:
-//                obStudent.checkInBook(ob);
-                break;
+                    break;
 
 
                 // Default case that will execute for sure
                 // if above cases does not match
-
-                default:
+                default: 
 
                     // Print statement
-                    System.out.println("ENTER BETWEEN 0 TO 8.");
+                    System.out.println("Invalid. ENTER BETWEEN 0 TO 7");
             }
 
 // 
@@ -213,15 +230,7 @@ public class LibraryMenu {
 //        // checking case entered value is not zero
 //    
         } while (choice != 0);
-    }
 
-    public void libraryMenu() {
-        System.out.println(
-                "********************Welcome to the Library!********************");
-        System.out.println(
-                "                  Select From The Following Options:               ");
-        System.out.println(
-                "***************************************************************");
     }
 
 }
