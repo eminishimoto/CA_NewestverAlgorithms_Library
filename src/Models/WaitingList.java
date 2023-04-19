@@ -4,7 +4,7 @@
  */
 package Models;
 
-
+// This is originaly from the class practice
 public class WaitingList implements Queue {
 
     // attribute
@@ -24,13 +24,15 @@ public class WaitingList implements Queue {
 //    }
 
     public WaitingList() {
-        this.capacity = this.capacity; //limits?
+        this.capacity = this.capacity; //limits
         this.data = new String[capacity];
         this.queueSize = 0;
         this.front = -1;
         this.back = -1;
     }
 
+ //Method
+    //adding into queue
     @Override
     public boolean Enqueue(String newElement) {
         if (queueSize >= capacity) {//impossible condition
@@ -50,7 +52,7 @@ public class WaitingList implements Queue {
     
    
 
-
+    //remove from the queue
     @Override
     public String Dequeue() {
         if (queueSize == 0) {
@@ -64,7 +66,7 @@ public class WaitingList implements Queue {
         queueSize--;  //
         return toReturn;
     }
-
+    //get the first person in the queue
     @Override
     public String First() {
         if (queueSize == 0) { //quesize0
@@ -73,7 +75,8 @@ public class WaitingList implements Queue {
 
         return data[front];//the first element of the data
     }
-
+    
+    //get the last person in the queue
     @Override
     public String Last() {
         if (queueSize == 0) {
@@ -81,24 +84,28 @@ public class WaitingList implements Queue {
         }
         return data[back];
     }
-
+    
+     //check the size of the queue
     @Override
     public int size() {
         return queueSize;
     }
 
+    //check the queue is empty or not
     @Override
     public boolean isEmpty() {//true or false = boolen
         if (queueSize == 0) {
-            return true;//can borrow the book
+            return true;//a new person can borrow the book
         }
-        return false;
+        return false;// need to enqueue
     }
-
+    
+    //show who is in the queue
     public String[] showdata(){
     return this.data;
 }
     
+    //show who is in the queue?
     @Override
     public String toString() {
         String toReturn = "["; //to represent an array
@@ -110,5 +117,14 @@ public class WaitingList implements Queue {
 
         return toReturn;
     }
-
+    
+    //If a book is returned and 
+    //has a waiting queue, display to the user the next student waiting for that book.
+   public String showwhoisnext() {
+        if (queueSize != 0) {
+            return data[front];
+        }return null;
+   }   
+   
+   
 }

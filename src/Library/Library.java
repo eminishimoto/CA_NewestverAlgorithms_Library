@@ -27,17 +27,17 @@ import java.util.logging.Logger;
  */
 public class Library {
 
-    private static Student studentId;
+    
     //attribute as arraylists  from Model class 
-    private ArrayList<Book> booklist; //data need to be read from csv
-    private ArrayList<Student> studentlist;//data  read from txt or random generate?
+    private ArrayList<Book> books; //data need to be read from csv  //changed from booklist
+    private ArrayList<Student> students;//data  read from txt or random generate? //changed from studentlist
     private ArrayList<WaitingList> waitinglist;
     private ArrayList<BorrowingList> borrowinglist;
 
     //constructor
     public Library() {
-        this.booklist = new ArrayList<Book>(); //= booklist;
-        this.studentlist = new ArrayList<Student>();//studentlist;
+        this.books = new ArrayList<Book>(); //= booklist;
+        this.students = new ArrayList<Student>();//studentlist;
         this.waitinglist = new ArrayList<WaitingList>();//witinglist;
         this.borrowinglist = new ArrayList<BorrowingList>();//borrowinglist;
     }
@@ -55,6 +55,10 @@ public class Library {
 //               SearchFile s1 = new SearchFile(calling1);
 ////        System.out.println(s1);
 
+ //show menu      
+        LibraryMenu lmenu= new LibraryMenu ();
+       lmenu.optionSwitch(); 
+       
         //Read files  
         Readfiles RF = new Readfiles(); //?new Readfiles is better?
         //     System.out.println("RF.loadData()"+RF.loadData());
@@ -72,16 +76,90 @@ public class Library {
 //
 //   BorrowingList     test   
         BorrowingList bwl = new BorrowingList();
+         System.out.println("This is the empty borrowinglist :" + bwl.toString());
         
-         System.out.println("This is empty borrowinglist :" + bwl);
+
+        //check borrowed status
+        boolean register1 = bwl.isBorrowed();
+        System.out.println(" Is this book borrowed?" +register1);
+        
+        //abut borrowing
+       String calling4 = myInput.getUserText("Input book ID");
+       bwl.setBookid(calling4);//want to add book to borrowing list for specific student
+       
+       String calling5 = myInput.getUserText("Input student ID");
+       bwl.setStudentId(calling5);//want to add book to borrowing list for specific student
+       
+       //generate BorrowID for this student
+       bwl.generateBorrowID();
+       
+       //change borrowedstatus = this book is borrowed now
+       bwl.bookborrowed();
+       System.out.println("Book borrowed " );
+               
+       //show the borrowinglist again
+       System.out.println("This is the updated borrowinglist :" + bwl.toString());
+       
+       
+       
+       
+       
+       //other student want to borrrow same book
+       
+       //book returned
+       bwl.returned(); 
+       System.out.println("Book returned " );
+       
+      //show the borrowinglist again
+       System.out.println("This is the updated borrowinglist :" + bwl.toString());
+       
+       
+       
+//       
+//       String calling5 = myInput.getUserText("This is borrowing list for the student"  );   
+//        System.out.println("" + myStudent.getBorrowinglist(calling4));
+
          
-//        String register1 = bwl.borrowBook(books, students, 34, 53);
+
+    
+       //check if this book is avairable
+        WaitingList WL = new WaitingList();  
+        System.out.println("Check the Waiting List");          
+        System.out.println("Is this book avairable now?" +  WL.isEmpty());
+        
+        String calling6 = myInput.getUserText("Register student for the waiting queue?");
+        WL.Enqueue(calling6);
+        System.out.println("This is the queue now :" + WL.toString());
+
 //        
-//        System.out.println(register1);
+//         System.out.println("Check the Waiting List");          
+//        System.out.println("Is this book avairable now?" +  WL.isEmpty());
+//        
+       //is isEmpty=true, student can borrow if not input the queue
+       //is isEmpty=false, student enqueue
+//       if(WL.isEmpty()== false){
+//           System.out.println("The Book is borrowed. Please book in WaitingList");
+////           WL.Enqueue(newElement);
+//           
+//       }//register the book
+//       else{
+//           System.out.println("The Book is avairable. Please input borrowingnote");
+//           
+//       }
+//       
+//       
 
 
-          
-//          BL.setBookid(myBook);
+
+
+
+
+
+
+
+
+
+
 
         Searching mySearch = new Searching();//want to use book array
 //Binary waiting for sorting part
@@ -181,40 +259,6 @@ public class Library {
 //       
        
        
-//    
-//       //check if this book is avairable
-//        WaitingList WL = new WaitingList(3);  //instanciate we only have constructer with capacity
-//        System.out.println("Check the Waiting List");          
-//        System.out.println("Is this book avairable now?" +  WL.isEmpty());
-//        
-//        String calling3 = myInput.getUserText("Register student for the waiting queue?");
-//        WL.Enqueue(calling3);
-//        System.out.println("This is the queue now :" + WL.toString());
-//        System.out.println(WL.showdata()); //doesnt work
-//        
-//         System.out.println("Check the Waiting List");          
-//        System.out.println("Is this book avairable now?" +  WL.isEmpty());
-//        
-       //is isEmpty=true, student can borrow if not input the queue
-       //is isEmpty=false, student enqueue
-//       if(WL.isEmpty()== false){
-//           System.out.println("The Book is borrowed. Please book in WaitingList");
-////           WL.Enqueue(newElement);
-//           
-//       }//register the book
-//       else{
-//           System.out.println("The Book is avairable. Please input borrowingnote");
-//           
-//       }
-//       
-//       
-//       //abut borrowing
-//       String calling4 = myInput.getUserText("Register book for the student");
-//       myStudent.setBorrowinglist(myBook);//want to add book to borrowing list for specific student
-//       
-//       String calling5 = myInput.getUserText("This is borrowing list for the student"  );   
-//        System.out.println("" + myStudent.getBorrowinglist(calling4));
-
 
     
 

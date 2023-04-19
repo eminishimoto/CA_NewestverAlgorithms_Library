@@ -18,8 +18,8 @@ public class BorrowingList {
 
     //attributs
     private String borrowId;//to track history
-    private Student studentId;
-    private Book bookid;
+    private String studentId;
+    private String bookid;
     private boolean borrowed; // should be indivisual class? or Book class?
     private int borrowed_date;//no need?
     private int returned_date;//no need?   
@@ -38,13 +38,13 @@ public class BorrowingList {
         this.borrowId = borrowId;
         this.studentId = studentId;
         this.bookid = bookid;
-        this.borrowed = false;
+        this.borrowed = false; //at first, every book are not borrowed
 //        this.borrowed_date = borrowed_date;
 //        this.returned_date = returned_date;
 
     }
 
-    public BorrowingList(Student studentId, Book bookid) {
+    public BorrowingList(String studentId, String bookid) {
         this.borrowId = borrowId;
         this.studentId = studentId;
         this.bookid = bookid;
@@ -56,11 +56,11 @@ public class BorrowingList {
 
     //Method
     //creat a new borrowed book //REFERENCE https://www.thestudentroom.co.uk/showthread.php?t=2441484
-    public Student getStudentId() {
+    public String getStudentId() {
         return studentId;
     }
 
-    public Book getBookid() {
+    public String getBookid() {
         return bookid;
     }
     // BorroweID creation 
@@ -82,10 +82,19 @@ public class BorrowingList {
         return this.borrowed;
         
     }
+   
+    // when it returned, statud is back to false
+    public void returned() {
+    borrowed = false;
+    }
 
-  
-
-
+    //add to borrowinglis?
+    public static ArrayList<BorrowingList> Borrowinglistrecords(ArrayList<BorrowingList> StudentId, ArrayList<BorrowingList> bookid ){
+			
+			ArrayList<BorrowingList> resultList = new ArrayList<BorrowingList>();
+                        return resultList;
+    }		
+			
 //
 //if the book borrowed, register into the Borrowinglist
 //    public String borrowBook( ArrayList<Book> books,ArrayList<Student> students,int studentIndex,int bookIndex ){
@@ -106,9 +115,10 @@ public class BorrowingList {
 //        return null;
 //    }
 
-//public String registerBorrowinglist( ){
+//public String registerBorrowinglist( Student studentId){
 //            return "Please input Book to borrow";
-//            
+//}
+//
 //            public String setBookid(Book bookid) {
 //            this.bookid = bookid;
 //    }
@@ -127,15 +137,22 @@ public class BorrowingList {
 //        }
 
 //    }
+    
+    //input which book is asked to be borrowed
+    public void setBookid(String bookid) {
+        this.bookid = bookid;
+    }
+    
+    //input student who wants to borrow  book
+        public void setStudentId(String studentId) {
+        this.studentId = studentId;
+    }
+    
+    //Librarian can set borrowed or not
+    public void setBorrowed(boolean borrowed) {
+        this.borrowed = borrowed;
+    }
 
-//    public void setBookid(Book bookid) {
-//        this.bookid = bookid;
-//    }
-
-//    public void setBorrowed(boolean borrowed) {
-//        this.borrowed = borrowed;
-//    }
-//
 //    public void setBorrowed_date(int borrowed_date) {
 //        this.borrowed_date = borrowed_date;
 //    }
@@ -152,9 +169,15 @@ public class BorrowingList {
 //        return returned_date;
 //    }
 //
-//    @Override
-//    public String toString() {
-//        return "BorrowingList{" + "studentId=" + studentId + ", bookid=" + bookid + ", borrowed=" + borrowed + ", borrowed_date=" + borrowed_date + ", returned_date=" + returned_date + '}';
-//    }
+
 //
+
+
+    
+
+    @Override
+    public String toString() {
+        return "BorrowingList{" + "borrowId=" + borrowId + ", studentId=" + studentId + ", bookid=" + bookid + ", borrowed=" + borrowed + ", borrowed_date=" + borrowed_date + ", returned_date=" + returned_date + '}';
+    }
+    
 }

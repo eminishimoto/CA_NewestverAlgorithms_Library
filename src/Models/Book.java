@@ -15,8 +15,9 @@ public class Book implements Comparable{  //data = MOCK_DATA.csv
     private String author_first_name;
     private String author_last_name;
     private String book_title;
+    private boolean avairable;
     
-//    private String genre;//no neeed
+
     
     //def  constructor
     public Book() {}
@@ -26,11 +27,23 @@ public class Book implements Comparable{  //data = MOCK_DATA.csv
         this.author_first_name = author_first_name;
         this.author_last_name = author_last_name;
         this.book_title = book_title;
-//      this.genre = genre; //no neeed  
+        this.avairable = true;//at first all avairable
+
     }
+
+
+    
     
     //method
     //getter  need?
+    
+    public boolean isAvairable() {
+        return avairable;
+    }
+
+    public String getBookid() {
+        return bookid;
+    }
     public String getId() {
         return bookid;
     }
@@ -55,8 +68,8 @@ public class Book implements Comparable{  //data = MOCK_DATA.csv
     }
 
 
-    public void showInfo() {
-        System.out.println("Book{" + "bookid=" + bookid + ", author_first_name=" + author_first_name + ", author_last_name=" + author_last_name + ", book_title=" + book_title + '}');
+    public String showBookInfo() {
+        return "\nBook info : " + "bookid=" + bookid + ", author_first_name=" + author_first_name + ", author_last_name=" + author_last_name + ", book_title=" + book_title ;
     }  
     
 //    //setter

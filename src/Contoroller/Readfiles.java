@@ -25,10 +25,10 @@ public class Readfiles {
 
         //create arraylist called records 
         ArrayList<Book> records = loadData();
-        System.out.println("The Book file is stored" +" \n"+ records + " \n");
+        System.out.println("The Book file is stored" +" \n..."+ records + " \n");
         
         ArrayList<Student> records2 = loadData2();
-        System.out.println("The Student file is stored" + " \n" + records2 + " \n");
+        System.out.println("The Student file is stored" + " \n..." + records2 + " \n");
         
 //         System.out.println("What Book do you need?" +"\n");
 //        System.out.println( records.get(1).getBook_title()); 

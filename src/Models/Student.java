@@ -36,9 +36,15 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" + "studentId=" + studentId + ", studentFirst=" + studentFirst + ", studentLast=" + studentLast + ", gender=" + gender + ", country=" + country + '}';
+        return "Student {" + "studentId=" + studentId + ", studentFirst=" + studentFirst + ", studentLast=" + studentLast + ", gender=" + gender + ", country=" + country + '}';
     }
-
+    
+    
+    public String showStudentinfo() {
+        return "\nStudent info : " + "studentId=" + studentId + ", studentFirst=" + studentFirst + ", studentLast=" + studentLast + ", gender=" + gender + ", country=" + country ;
+    }
+    
+//"\n********* \n Staff ID:\t" + this.staff_ID + "\nFirstname:\t" + this.firstname + "\nSurname:\t" + this.surname + "\nRole:\t" + this.role.toString();
     
     public String getStudentId() {
         return studentId;

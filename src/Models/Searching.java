@@ -98,7 +98,7 @@ public class Searching {
             System.out.println( "..." + array.get(i).getBook_title());//shows elements until the target found. not neccesarry but good to see processing
             // When the element matched with the target, stop the loop and return the index
             if((array.get(i).getBook_title().replace(" ", "").equalsIgnoreCase(NewtargetTitle))){
-                return "The Title Found : "+ array.get(i).toString();//show array=info of the book  
+                return "The Title Found : "+ targetTitle  + array.get(i).showBookInfo();//show array=info of the book  ;
                 
                 
             }            
@@ -111,6 +111,7 @@ public class Searching {
  //search by name                                     //this array is record
     public String linearSearchbyname(ArrayList<Book> array, String targetName){
         
+        
          System.out.println("-----------");
          System.out.println("-- Searching by Author Name --");
         
@@ -120,7 +121,7 @@ public class Searching {
             System.out.println( "..." + array.get(i).getAuthor_Fullname());
             // When the element is found, stop the loop and return the index
             if(array.get(i).getAuthor_Fullname().replace(" ", "").equalsIgnoreCase(NewtargetName )){
-                return "The Name Found : "+ array.get(i).getAuthor_Fullname().toString();//show array=info of the book
+                return "The Name Found : " + targetName + array.get(i).showBookInfo();//show array=info of the book
                 
             }            
         }//if the element is not found, show message. return position:-1 means the element doen't exist
@@ -139,7 +140,7 @@ public class Searching {
             System.out.println( "..." + array.get(i).getStudentId());
             // When the element is found, stop the loop and return the index
             if(array.get(i).getStudentId().replace(" ", "").equalsIgnoreCase(NewtargetId )){
-                return "The ID Found : "+array.get(i).getStudentId().toString();//show array=info of the book
+                return "The ID Found : " + targetId + array.get(i).showStudentinfo();//show array=info of the book
                 
             }            
         }//if the element is not found, show message. return position:-1 means the element doen't exist
@@ -158,7 +159,7 @@ public class Searching {
             System.out.println( "..." + array.get(i).getStudentFullname());
             // When the element is found, stop the loop and return the index
             if(array.get(i).getStudentFullname().replace(" ", "").equalsIgnoreCase(NewtargetName )){
-                return "The Name Found : "+ array.get(i).getStudentFullname().toString();//show array=info of the book
+                return "The Name Found : "+ targetName + array.get(i).showStudentinfo();//show array=info of the book
                 
             }            
         }//if the element is not found, show message. return position:-1 means the element doen't exist
