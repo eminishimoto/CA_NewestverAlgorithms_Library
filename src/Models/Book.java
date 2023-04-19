@@ -8,19 +8,19 @@ package Models;
  *
  * @author emi
  */
-public class Book implements Comparable{  //data = MOCK_DATA.csv
-    
+public class Book implements Comparable {  //data = MOCK_DATA.csv
+
     // attribute
     private String bookid;
     private String author_first_name;
     private String author_last_name;
     private String book_title;
     private boolean avairable;
-    
 
-    
     //def  constructor
-    public Book() {}
+    public Book() {
+    }
+
     //constructor
     public Book(String bookid, String author_first_name, String author_last_name, String book_title) {
         this.bookid = bookid;
@@ -31,12 +31,7 @@ public class Book implements Comparable{  //data = MOCK_DATA.csv
 
     }
 
-
-    
-    
     //method
-    //getter  need?
-    
     public boolean isAvairable() {
         return avairable;
     }
@@ -44,6 +39,7 @@ public class Book implements Comparable{  //data = MOCK_DATA.csv
     public String getBookid() {
         return bookid;
     }
+
     public String getId() {
         return bookid;
     }
@@ -55,57 +51,27 @@ public class Book implements Comparable{  //data = MOCK_DATA.csv
     public String getAuthor_last_name() {
         return author_last_name;
     }
-    public String getAuthor_Fullname(){
+
+    public String getAuthor_Fullname() {
         return author_first_name + " " + author_last_name;
     }
 
     public String getBook_title() {
         return book_title;
     }
+
     @Override
     public String toString() {
         return "Book{" + "bookid=" + bookid + ", author_first_name=" + author_first_name + ", author_last_name=" + author_last_name + ", book_title=" + book_title + '}';
     }
 
-
     public String showBookInfo() {
-        return "\nBook info : " + "bookid=" + bookid + ", author_first_name=" + author_first_name + ", author_last_name=" + author_last_name + ", book_title=" + book_title ;
-    }  
-    
-//    //setter
-//    public void setId(String id) {
-//        this.id = id;
-//    }
-//
-//    public void setAuthor_first_name(String author_first_name) {
-//        this.author_first_name = author_first_name;
-//    }
-//
-//    public void setAuthor_last_name(String author_last_name) {
-//        this.author_last_name = author_last_name;
-//    }
-//
-//    public void setBook_title(String book_title) {
-//        this.book_title = book_title;
-//    }
-//
-//    public void setGenre(String genre) {
-//        this.genre = genre;
-//    }
-  
-
+        return "\nBook info : " + "bookid=" + bookid + ", author_first_name=" + author_first_name + ", author_last_name=" + author_last_name + ", book_title=" + book_title;
+    }
 
     @Override
     public int compareTo(Object o) {
         return this.book_title.compareTo(o.toString());
     }
 
-    
-            
-    
-    
-   
-    
-    
-    
 }

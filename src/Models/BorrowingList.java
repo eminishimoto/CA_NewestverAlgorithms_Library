@@ -18,7 +18,7 @@ public class BorrowingList {
 //    private int returned_date;//no need?    
 
     //attributs
-    private String borrowId;//to track history
+    private int borrowId;//to track history
     private String studentId;
     private String bookid;
     private boolean borrowed; // should be indivisual class? or Book class?
@@ -84,7 +84,7 @@ public class BorrowingList {
         
     }
    
-    // when it returned, statud is back to false
+    // when it returned, status is back to false
     public void returned() {
     borrowed = false;
     }
@@ -154,24 +154,22 @@ public class BorrowingList {
         this.borrowed = borrowed;
     }
 
-//    public void setBorrowed_date(int borrowed_date) {
-//        this.borrowed_date = borrowed_date;
-//    }
-//
-//    public void setReturned_date(int returned_date) {
-//        this.returned_date = returned_date;
-//    }
-//
-//    public int getBorrowed_date() {
-//        return borrowed_date;
-//    }
-//
-//    public int getReturned_date() {
-//        return returned_date;
-//    }
-//
+    public void setBorrowed_date(int borrowed_date) {
+        this.borrowed_date = borrowed_date;
+    }
 
-//
+    public void setReturned_date(int returned_date) {
+        this.returned_date = returned_date;
+    }
+
+    public int getBorrowed_date() {
+        return borrowed_date;
+    }
+
+    public int getReturned_date() {
+        return returned_date;
+    }
+
 
 
     

@@ -123,13 +123,13 @@ public class Library {
 
     
        //check if this book is avairable
-        WaitingList WL = new WaitingList();  
-        System.out.println("Check the Waiting List");          
-        System.out.println("Is this book avairable now?" +  WL.isEmpty());
-        
-        String calling6 = myInput.getUserText("Register student for the waiting queue?");
-        WL.Enqueue(calling6);
-        System.out.println("This is the queue now :" + WL.toString());
+//        WaitingList WL = new WaitingList();  
+//        System.out.println("Check the Waiting List");          
+//        System.out.println("Is this book avairable now?" +  WL.isEmpty());
+//        
+//        String calling6 = myInput.getUserText("Register student for the waiting queue?");
+//        WL.Enqueue(calling6);
+//        System.out.println("This is the queue now :" + WL.toString());
 
 //        
 //         System.out.println("Check the Waiting List");          

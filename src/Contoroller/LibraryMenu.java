@@ -48,16 +48,15 @@ public class LibraryMenu {
     // Display option. used inseide optionSwitch() method
     public void dispMenu() {
         System.out.println(
-                "-----------------------------------------------------------------------------");
-        System.out.println("Enter 0 to Exit Application");
-        System.out.println("Enter 1 to Search a Book");
-        System.out.println("Enter 2 to Sort Books");
-        System.out.println("Enter 3 to Search a Student");
-        System.out.println("Enter 4 to Sort a Student");
-        System.out.println("Enter 5 to ");
-        System.out.println("Enter 6 to ");
-        System.out.println("Enter 7 to  ");
-        System.out.println("Enter 8 to ");
+                "------------------------------------------------------------------");
+        System.out.println("Enter 0 -- Exit Application");
+        System.out.println("Enter 1 -- Search a Book");
+        System.out.println("Enter 2 -- Sort Books");
+        System.out.println("Enter 3 -- Search a Student");
+        System.out.println("Enter 4 -- Sort a Student");
+        System.out.println("Enter 5 -- Register a student has borrowed a book");
+        System.out.println("Enter 6 -- Register a student has returned a book");
+        System.out.println("Enter 7 -- Student book borrowing history");
         System.out.println("------------------------------------------------------------------");
     }
 
@@ -177,39 +176,36 @@ public class LibraryMenu {
                     }
                     break;
 
-//                
-//                // Case
-//            case 5:
+                
+                // Case
+            case 5:
 //                student s = new student();
 //                obStudent.addStudent(s);
-//                break;
+                break;
 // 
-//                // Case
-//            case 6:
+                // Case
+            case 6:
 //                obStudent.showAllStudents();
-//                break;
+                break;
 // 
-//                // Case
-//            case 7:
+                // Case
+            case 7:
 //                obStudent.checkOutBook(ob);
-//                break;
+                break;
 // 
-//                // Case
-//            case 8:
+                // Case
+            case 8:
 //                obStudent.checkInBook(ob);
-//                break;
-//               // Case
-//            case 9:
-//                obStudent.checkInBook(ob);
-//                break;
-//                
-//                              // Default case that will execute for sure
-//                // if above cases does not match
-//
+                break;
+
+
+                // Default case that will execute for sure
+                // if above cases does not match
+
                 default:
 
                     // Print statement
-                    System.out.println("ENTER BETWEEN 0 TO 9.");
+                    System.out.println("ENTER BETWEEN 0 TO 8.");
             }
 
 // 
