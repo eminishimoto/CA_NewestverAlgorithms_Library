@@ -234,7 +234,7 @@ public class Library {
         for (Student s : studentArr) {
             if (student == null || !student.getStudentFirst().equals(s.getStudentFirst())) {
                 System.out.println("Student first Name: " + s.getStudentFirst());
-                System.out.println("Students full Name: " + s.getStudentFirst() + " " + s.getStudentLast());
+                System.out.println(" Students full Name: " + s.getStudentFirst() + " " + s.getStudentLast());
             }
             student = s;
         }

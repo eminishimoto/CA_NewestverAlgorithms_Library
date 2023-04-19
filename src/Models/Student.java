@@ -40,6 +40,11 @@ public class Student {
     }
     
     
+    // for sorting part
+    public String toStringstudentF() {
+    return studentFirst;
+    }
+    
     public String showStudentinfo() {
         return "\nStudent info : " + "studentId=" + studentId + ", studentFirst=" + studentFirst + ", studentLast=" + studentLast + ", gender=" + gender + ", country=" + country ;
     }
