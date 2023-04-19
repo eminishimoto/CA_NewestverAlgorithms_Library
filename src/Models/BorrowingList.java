@@ -94,7 +94,11 @@ public class BorrowingList {
 			
 			ArrayList<BorrowingList> resultList = new ArrayList<BorrowingList>();
                         return resultList;
-    }		
+    }	
+    
+    
+    
+
 			
 //
 //if the book borrowed, register into the Borrowinglist
@@ -138,6 +142,18 @@ public class BorrowingList {
 //        }
 
 //    }
+
+    public int getBorrowId() {
+        return borrowId;
+    }
+
+    public static int getCurrentBorrowIdNumber() {
+        return currentBorrowIdNumber;
+    }
+    
+    
+    
+    
     
     //input which book is asked to be borrowed
     public void setBookid(String bookid) {

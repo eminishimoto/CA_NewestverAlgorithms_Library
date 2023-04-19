@@ -123,19 +123,7 @@ public class Readfiles {
 
 
 
-//        String fileName = "test.txt";
-//        ArrayList<String> lines = new ArrayList<>();
-//
-//        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-//            String line;
-//            while ((line = br.readLine()) != null) {
-//                lines.add(line);
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        System.out.println(lines);
+
 
 }
 

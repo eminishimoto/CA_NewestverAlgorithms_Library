@@ -56,13 +56,13 @@ public class Library {
 ////        System.out.println(s1);
 
  //show menu      
-        LibraryMenu lmenu= new LibraryMenu ();
-        
-       //ask password- anything above 4 letters/numbers are fine
-       lmenu.password();
-       
-       //show option menu
-       lmenu.optionSwitch(); 
+//        LibraryMenu lmenu= new LibraryMenu ();
+//        
+//       //ask password- anything above 4 letters/numbers are fine
+//       lmenu.password();
+//       
+//       //show option menu
+//       lmenu.optionSwitch(); 
        
 //Read files  --> inside Library menu
 //        Readfiles RF = new Readfiles(); //?new Readfiles is better?
@@ -82,8 +82,8 @@ public class Library {
 //   BorrowingList     test   
         BorrowingList bwl = new BorrowingList();
          System.out.println("This is the empty borrowinglist :" + bwl.toString());
-        
-
+         
+  
         //check borrowed status
         boolean register1 = bwl.isBorrowed();
         System.out.println(" Is this book borrowed?" +register1);
@@ -95,6 +95,7 @@ public class Library {
        String calling5 = myInput.getUserText("Input student ID");
        bwl.setStudentId(calling5);//want to add book to borrowing list for specific student
        
+       
        //generate BorrowID for this student
        bwl.generateBorrowID();
        
@@ -104,6 +105,10 @@ public class Library {
                
        //show the borrowinglist again
        System.out.println("This is the updated borrowinglist :" + bwl.toString());
+       
+        ArrayList<BorrowingList> bArray = new ArrayList<BorrowingList>();
+       System.out.println("Added to borrowing list" + bArray.add(bwl));
+        System.out.println(bArray.toString());
        
        
        
@@ -263,6 +268,9 @@ public class Library {
 //        System.out.println("Students Name: " + s.getStudentFirst() + " " + s.getStudentLast() );
 //}
     }
+    
+
+    
 }
 
 
