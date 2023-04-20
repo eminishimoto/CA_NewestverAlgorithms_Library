@@ -22,7 +22,6 @@ public class WaitingList implements Queue {
 //        this.front = -1;
 //        this.back = -1;
 //    }
-
     public WaitingList() {
         this.capacity = this.capacity; //limits
         this.data = new String[capacity];
@@ -31,7 +30,7 @@ public class WaitingList implements Queue {
         this.back = -1;
     }
 
- //Method
+    //Method
     //adding into queue
     @Override
     public boolean Enqueue(String newElement) {
@@ -46,11 +45,9 @@ public class WaitingList implements Queue {
         back++; //move pointer //back move as well like first
         data[back] = newElement; //store data as new element
         queueSize++; //size increse as well
-        return true  ;
+        return true;
 
     }
-    
-   
 
     //remove from the queue
     @Override
@@ -66,6 +63,7 @@ public class WaitingList implements Queue {
         queueSize--;  //
         return toReturn;
     }
+
     //get the first person in the queue
     @Override
     public String First() {
@@ -75,7 +73,7 @@ public class WaitingList implements Queue {
 
         return data[front];//the first element of the data
     }
-    
+
     //get the last person in the queue
     @Override
     public String Last() {
@@ -84,8 +82,8 @@ public class WaitingList implements Queue {
         }
         return data[back];
     }
-    
-     //check the size of the queue
+
+    //check the size of the queue
     @Override
     public int size() {
         return queueSize;
@@ -99,12 +97,12 @@ public class WaitingList implements Queue {
         }
         return false;// need to enqueue
     }
-    
+
     //show who is in the queue
-    public String[] showdata(){
-    return this.data;
-}
-    
+    public String[] showdata() {
+        return this.data;
+    }
+
     //show who is in the queue?
     @Override
     public String toString() {
@@ -117,14 +115,14 @@ public class WaitingList implements Queue {
 
         return toReturn;
     }
-    
+
     //If a book is returned and 
     //has a waiting queue, display to the user the next student waiting for that book.
-   public String showwhoisnext() {
+    public String showwhoisnext() {
         if (queueSize != 0) {
             return data[front];
-        }return null;
-   }   
-   
-   
+        }
+        return null;
+    }
+
 }

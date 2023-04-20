@@ -10,9 +10,9 @@ import java.util.Objects;
  *
  * @author emi
  */
-public class Student {
-    
-        // attribute
+public class Student implements Comparable {
+
+    // attribute
     private String studentId;
     private String studentFirst;
     private String studentLast;
@@ -20,12 +20,14 @@ public class Student {
     private String country;
 //    private String[] borrowinglist;//?
 
-    
     //constructor
-    public Student(){}
-    public Student(String studentId){}
-    
-    public Student(String studentId, String studentFirst, String studentLast, String gender,String country) {
+    public Student() {
+    }
+
+    public Student(String studentId) {
+    }
+
+    public Student(String studentId, String studentFirst, String studentLast, String gender, String country) {
         this.studentId = studentId;
         this.studentFirst = studentFirst;
         this.studentLast = studentLast;
@@ -38,19 +40,12 @@ public class Student {
     public String toString() {
         return "Student {" + "studentId=" + studentId + ", studentFirst=" + studentFirst + ", studentLast=" + studentLast + ", gender=" + gender + ", country=" + country + '}';
     }
-    
-    
-    // for sorting part
-    public String toStringstudentF() {
-    return studentFirst;
-    }
-    
+
     public String showStudentinfo() {
-        return "\nStudent info : " + "studentId=" + studentId + ", studentFirst=" + studentFirst + ", studentLast=" + studentLast + ", gender=" + gender + ", country=" + country ;
+        return "\nStudent info : " + "studentId=" + studentId + ", studentFirst=" + studentFirst + ", studentLast=" + studentLast + ", gender=" + gender + ", country=" + country;
     }
-    
+
 //"\n********* \n Staff ID:\t" + this.staff_ID + "\nFirstname:\t" + this.firstname + "\nSurname:\t" + this.surname + "\nRole:\t" + this.role.toString();
-    
     public String getStudentId() {
         return studentId;
     }
@@ -62,10 +57,19 @@ public class Student {
     public String getStudentLast() {
         return studentLast;
     }
-    
+
     public String getStudentFullname() {
-        return studentFirst  + " " + studentLast;
+        return studentFirst + " " + studentLast;
     }
 
+    public String toStringfirstName() {
+        return studentFirst;
+    }
+
+//   }
+    @Override
+    public int compareTo(Object o) {
+        return this.studentFirst.compareTo(o.toString());
+    }
 
 }

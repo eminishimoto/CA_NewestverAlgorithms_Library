@@ -24,18 +24,16 @@ import java.util.Scanner;
 public class LibraryMenu {
 
     //Read files  
-    Readfiles RF = new Readfiles(); //?new Readfiles is better?
+    Readfiles RF = new Readfiles();
 
-    ArrayList<Book> books = RF.loadData(); //store the Bookrecord from Readfile in books to make it work in this clas
+    ArrayList<Book> books = RF.loadData(); //store the Bookrecord from Readfile 
     ArrayList<Student> students = RF.loadData2();//store the Studentrecord       
 
     InputUtilsLB myInput = new InputUtilsLB();
-    Scanner myKB = new Scanner(System.in);//Scanner
-   
+    Scanner myKB = new Scanner(System.in);
 
-    
     // Show welcome message  
-    public LibraryMenu() { //void or String?
+    public LibraryMenu() {
 
         System.out.println(
                 "********************Welcome to the Library!********************");
@@ -74,15 +72,16 @@ public class LibraryMenu {
         System.out.println("Enter 3 -- Search a Student");
         System.out.println("Enter 4 -- Sort a Student");
         System.out.println("Enter 5 -- Register a student has borrowed a book");
-        System.out.println("Enter 6 -- Register a student has returned a book");
-        System.out.println("Enter 7 -- Student book borrowing history");
+        System.out.println("Enter 6 -- If a book is borrowed,  add that reader to a waiting list");
+        System.out.println("Enter 7 -- Register a student has returned a book ");
+        System.out.println("Enter 8 -- Show the first students in the waiting list");
+        System.out.println("Enter 9 -- Student's borrowing history");
         System.out.println("---------------------------------------------------------------");
     }
 
 //REFERENCEhttps://codereview.stackexchange.com/questions/206615/a-student-library-program-in-java
 // https://www.scribd.com/document/636334916/20MID0209-JAVA-DA-1#  
 //https://www.geeksforgeeks.org/library-management-system-using-switch-statement-in-java/
-    
     //Ask user to select from above optuons using switch  
     public void optionSwitch() {
         // Creating object of Scanner class to take input from user 
@@ -93,10 +92,10 @@ public class LibraryMenu {
         Student obStudent = new Student();
 
         Searching mySearch = new Searching();
-        
-                     Library myl =new Library();
-                     BorrowingList bwl  = new BorrowingList();
-                     WaitingList wl = new WaitingList();
+
+        Library myl = new Library();
+        BorrowingList bwl = new BorrowingList();
+        WaitingList wl = new WaitingList();
 
 // 
         int choice;
@@ -112,9 +111,9 @@ public class LibraryMenu {
 
             // Switch case
             switch (choice) {
-               
+
                 //Exit from library menu
-               case 0:
+                case 0:
 
                     System.out.println("...Exit program");
                     break;
@@ -146,7 +145,6 @@ public class LibraryMenu {
 
                 // Sort
                 case 2:
-
                     Sorting bubble = new Sorting();
 
                     Book[] bookArr = new Book[books.size()];
@@ -200,9 +198,10 @@ public class LibraryMenu {
                     insert.insertionSort(studentArr);
                     Student student = null;
                     for (Student s : studentArr) {
-                        if (student == null || !student.getStudentFirst().equals(s.getStudentFirst())) {
-                            System.out.println("Student first Name: " + s.getStudentFirst());
-                            System.out.println(" Students Name and ID: " + s.getStudentFullname() + " " + s.getStudentId());
+                        if (student == null || !student.toStringfirstName().equals(s.toStringfirstName())) {
+                            System.out.println("Student first Name: " + s.toStringfirstName());
+                            System.out.println(" Students full Name: " + s.getStudentFullname() + " " + " Students Id: " + s.getStudentId());
+
                         }
                         student = s;
                     }
@@ -210,80 +209,89 @@ public class LibraryMenu {
 
                 // Case Register borrowing
                 case 5:
-                             
-         System.out.println("This is the empty borrowinglist :" + bwl.toString());
-         
-  
-        //check borrowed status
-        boolean register1 = bwl.isBorrowed();
-        System.out.println(" Is this book borrowed?" +register1);
-        
-//        //abut borrowing
-       String calling4 = myInput.getUserText("Input book ID");
-       bwl.setBookid(calling4);//want to add book to borrowing list for specific student
-       
-       String calling5 = myInput.getUserText("Input student ID");
-       bwl.setStudentId(calling5);
-              //generate BorrowID for this student
-       bwl.generateBorrowID();
-       
-       //change borrowedstatus = this book is borrowed now
-       bwl.bookborrowed();
-       System.out.println("Book borrowed " );
-               
-       //show the borrowinglist again
-       System.out.println("This is the updated borrowinglist :" + bwl.toString());
-       
-        ArrayList<BorrowingList> bArray = new ArrayList<BorrowingList>();
-       System.out.println("Added to borrowing list : " + bArray.add(bwl));
-        System.out.println(bArray.toString());
-//                             String lineaResult9 = myl.registerBorrow(borrowed, waitinglist, bookid, studentId);
-//                            System.out.println("\n" + lineaResult9);
+
+                    System.out.println("This is the empty borrowinglist :" + bwl.toString());
+
+                    //check borrowed status
+                    boolean register1 = bwl.isBorrowed();
+                    System.out.println(" Is this book borrowed?" + register1);
+
+                    //about borrowing
+                    String calling4 = myInput.getUserText("Input book ID");
+                    bwl.setBookid(calling4);//want to add book to borrowing list for specific student
+
+                    String calling5 = myInput.getUserText("Input student ID");
+                    bwl.setStudentId(calling5);
+                    //generate BorrowID for this student
+
+                    //change borrowedstatus = this book is borrowed now
+                    bwl.bookborrowed();
+                    System.out.println("Book borrowed ");
+
+                    //show the borrowinglist again
+                    System.out.println("This is the updated borrowinglist :" + bwl.toString());
+
+                    ArrayList<BorrowingList> bArray = new ArrayList<BorrowingList>();
+                    System.out.println("Added to borrowing list : " + bArray.add(bwl));
+                    System.out.println(bArray.toString());
+
                     break;
 // 
-                // Case
+                // Case  add to waiting list
                 case 6:
-//                obStudent.showAllStudents();
-        Scanner myInput = new Scanner(System.in);
-//        String borrowID, String studentId, String bookid;
-//        System.out.println("Input book ID");
-//          bookid = myInput.nextLine();
-//        System.out.println("Input student ID:");
-//        studentId = myInput.nextLine();
-//
-//        for (BorrowingList bwl : borrowed) {
-//            if (bwl.getBookid().equals(bookid) && bwl.isBorrowed()== true) {
-//                
-//                System.out.println("Book is already borrowed.");
-//                System.out.println("Please add the student to the waiting list.");
-//                
-//                 WaitingList wl = new WaitingList();
-//                    wl.Enqueue(studentId);
-//                    System.out.println("added to the waiting list.");
-//                    return;
-//                } else {
-//                    return;
-//                }
-//            }
-        
+//             
+                    if (bwl.isBorrowed() == true) {
+                        String calling9 = myInput.getUserText("Input student ID");
+                        bwl.setStudentId(calling9);
+                        wl.Enqueue(calling9);
+                        System.out.println("This book is not available. Added to the waiting list.");
+                        System.out.println(wl.isEmpty());
+                        return;
+                    } else {
+                        System.out.println("This is available.Plese register borrowing");
+
+                    }
+
                     break;
 // 
-                // Case
+                // Case returned a book
                 case 7:
-//                obStudent.checkOutBook(ob);
+                    bwl.returned();
+                    System.out.println("Book returned ");
+
+                    //show the borrowinglist again
+                    System.out.println("This is the updated borrowinglist :" + bwl.toString());
+
+                    ArrayList<BorrowingList> b2Array = new ArrayList<BorrowingList>();
+                    System.out.println(b2Array.toString());
                     break;
 
+                // Case show first student in the waiting list
+                case 8:
+//                     
+                    System.out.println("Show the first students in the waiting list");
+
+                    if (wl.isEmpty() == false) {
+                        System.out.println(wl.showwhoisnext().toString());
+                    }
+                    break;
+
+                // Case Student borrowing history
+                case 9:
+//                     
+                    System.out.println("Student's Borrowing history ");
+                    ArrayList<BorrowingList> cArray = new ArrayList<BorrowingList>();
+                    System.out.println(cArray.toString());
+                    break;
 
                 // Default case that will execute for sure
                 // if above cases does not match
-                default: 
+                default:
 
                     // Print statement
-                    System.out.println("Invalid. ENTER BETWEEN 0 TO 7");
+                    System.out.println("Invalid. ENTER BETWEEN 0 TO 9");
             }
 
-// 
-//       
 //        // until input=0(exit), menu repeats
 //    
         } while (choice != 0);

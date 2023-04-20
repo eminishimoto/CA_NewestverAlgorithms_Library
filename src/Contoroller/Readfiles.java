@@ -25,14 +25,12 @@ public class Readfiles {
 
         //create arraylist called records 
         ArrayList<Book> records = loadData();
-        System.out.println("...The Book file is stored" +" \n..."+ records + " \n");
-        
+        System.out.println("...The Book file is stored" + " \n..." + records + " \n");
+
         ArrayList<Student> records2 = loadData2();
         System.out.println("...The Student file is stored" + " \n..." + records2 + " \n");
-        
 
     }
-    
 
     //loadData Book 
     public ArrayList<Book> loadData() {
@@ -61,13 +59,12 @@ public class Readfiles {
                 author_last_name = data[2];//position2
 //                book_title = data[3];//position3
                 //Title are separated from space
-                book_title = "";   
-                 for(int i=3; i<data.length-1; i++) {
+                book_title = "";
+                for (int i = 3; i < data.length - 1; i++) {
                     book_title += data[i];
                 }
 
 //                genre = data[4];//position4
-                
                 //adding elements into Arraylist records                                               some title has " . to remove them https://tech.pjin.jp/blog/2018/04/28/java_how_to_escape/
                 records.add(new Book(bookid, author_first_name, author_last_name, book_title.replace("\"", "")));
                 contentLine = br.readLine();
@@ -108,7 +105,7 @@ public class Readfiles {
                 studentLast = data[2];
                 gender = data[3];
                 country = data[4];
-                
+
                 //
                 records2.add(new Student(studentId, studentFirst, studentLast, gender, country));
                 contentLine = br2.readLine();
@@ -121,10 +118,6 @@ public class Readfiles {
         //if there is names, return records
         return records2;
 
-
-
-
-
-}
+    }
 
 }
