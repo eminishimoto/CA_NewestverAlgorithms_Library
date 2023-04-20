@@ -24,11 +24,11 @@ public class BorrowingListContoroller {
                         return resultList;
     }	
     
-// Register borrowing
-//    public static void registerBorrow(ArrayList<BorrowingList> borrowed, ArrayList<WaitingList> waitinglist) {
+//// Register borrowing
+//    public static void registerBorrow(ArrayList<BorrowingList> borrowed, ArrayList<WaitingList> waitinglist,String bookid, String studentId) {
 //        char option;
 //        Scanner in = new Scanner(System.in);
-//        String borrowID, studentId, bookid;
+////        String borrowID, String studentId, String bookid;
 //        System.out.println("Input book ID");
 ////        bookid = in.nextLine();
 //        System.out.println("Input student ID:");
@@ -41,7 +41,7 @@ public class BorrowingListContoroller {
 //                System.out.println("Please add the student to the waiting list.");
 //                
 //                
-//                    addToWaitingList(waitinglist, bookid, studentId);
+//                    Enqueue(waitinglist, bookid, studentId);
 //                    System.out.println("added to the waiting list.");
 //                    return;
 //                } else {
@@ -49,7 +49,7 @@ public class BorrowingListContoroller {
 //                }
 //            }
 //        }
-//
+
 //        
 //        //generate BorrowID for this student
 //       bwl.generateBorrowID();

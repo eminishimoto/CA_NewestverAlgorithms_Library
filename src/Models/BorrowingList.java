@@ -102,57 +102,38 @@ public class BorrowingList {
 			
 //
 //if the book borrowed, register into the Borrowinglist
-//    public String borrowBook( ArrayList<Book> books,ArrayList<Student> students,int studentIndex,int bookIndex ){
+    public String borrowBook( ArrayList<Book> books,ArrayList<Student> students,int studentIndex,int bookIndex ){
 //        
-//            String studentId = students.get(studentIndex-1).getStudentId();
-//            String bookid = books.get(bookIndex-1).getId();
+            String studentId = students.get(studentIndex-1).getStudentId();
+            String bookid = books.get(bookIndex-1).getId();
 //            
-//            System.out.println("Registered in borrowing book : " + studentId + bookid); 
-//            
-//            
-//            
-//             
-//            System.out.println(getStudentId() + " has borrowed " + getBookid());
-////        } else {
-////            waitingQueue.addStudent(student);
-////            System.out.println(student.getName() + " is added to the waiting queue for " + getTitle());
-////        }
-//        return null;
-//    }
-
-//public String registerBorrowinglist( Student studentId){
-//            return "Please input Book to borrow";
-//}
-//
-//            public String setBookid(Book bookid) {
-//            this.bookid = bookid;
-//    }
-//}
+            System.out.println("Registered in borrowing book : " + studentId + bookid); 
+            
+            
+            
+             
+            System.out.println(getStudentId() + " has borrowed " + getBookid());
+          return null;
 //       
-//            
-//            System.out.println("Registered in borrowing book : " + studentId + bookid); 
-//            
-//            
-//            
-//             
-//            System.out.println(getStudentId() + " has borrowed " + getBookid());
-//        } else {
 //            waitingQueue.addStudent(student);
 //            System.out.println(student.getName() + " is added to the waiting queue for " + getTitle());
-//        }
+        }
+        
 
-//    }
+
+public String registerBorrowing(String id_reader, String id_book ){
+            return id_reader;
+
+}
+       
+            
+
+            
+
 
     public int getBorrowId() {
         return borrowId;
     }
-
-    public static int getCurrentBorrowIdNumber() {
-        return currentBorrowIdNumber;
-    }
-    
-    
-    
     
     
     //input which book is asked to be borrowed
@@ -192,7 +173,7 @@ public class BorrowingList {
 
     @Override
     public String toString() {
-        return "BorrowingList{" + "borrowId=" + borrowId + ", studentId=" + studentId + ", bookid=" + bookid + ", borrowed=" + borrowed + ", borrowed_date=" + borrowed_date + ", returned_date=" + returned_date + '}';
+        return "BorrowingList{" + "borrowId=" + generateBorrowID() + ", studentId=" + studentId + ", bookid=" + bookid + ", borrowed=" + borrowed + ", borrowed_date=" + borrowed_date + ", returned_date=" + returned_date + '}';
     }
     
 }

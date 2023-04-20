@@ -31,7 +31,9 @@ public class LibraryMenu {
 
     InputUtilsLB myInput = new InputUtilsLB();
     Scanner myKB = new Scanner(System.in);//Scanner
+   
 
+    
     // Show welcome message  
     public LibraryMenu() { //void or String?
 
@@ -77,8 +79,10 @@ public class LibraryMenu {
         System.out.println("---------------------------------------------------------------");
     }
 
-//rEFERENCEhttps://codereview.stackexchange.com/questions/206615/a-student-library-program-in-java
+//REFERENCEhttps://codereview.stackexchange.com/questions/206615/a-student-library-program-in-java
 // https://www.scribd.com/document/636334916/20MID0209-JAVA-DA-1#  
+//https://www.geeksforgeeks.org/library-management-system-using-switch-statement-in-java/
+    
     //Ask user to select from above optuons using switch  
     public void optionSwitch() {
         // Creating object of Scanner class to take input from user 
@@ -89,6 +93,10 @@ public class LibraryMenu {
         Student obStudent = new Student();
 
         Searching mySearch = new Searching();
+        
+                     Library myl =new Library();
+                     BorrowingList bwl  = new BorrowingList();
+                     WaitingList wl = new WaitingList();
 
 // 
         int choice;
@@ -200,15 +208,64 @@ public class LibraryMenu {
                     }
                     break;
 
-                // Case
+                // Case Register borrowing
                 case 5:
-//                student s = new student();
-//                obStudent.addStudent(s);
+                             
+         System.out.println("This is the empty borrowinglist :" + bwl.toString());
+         
+  
+        //check borrowed status
+        boolean register1 = bwl.isBorrowed();
+        System.out.println(" Is this book borrowed?" +register1);
+        
+//        //abut borrowing
+       String calling4 = myInput.getUserText("Input book ID");
+       bwl.setBookid(calling4);//want to add book to borrowing list for specific student
+       
+       String calling5 = myInput.getUserText("Input student ID");
+       bwl.setStudentId(calling5);
+              //generate BorrowID for this student
+       bwl.generateBorrowID();
+       
+       //change borrowedstatus = this book is borrowed now
+       bwl.bookborrowed();
+       System.out.println("Book borrowed " );
+               
+       //show the borrowinglist again
+       System.out.println("This is the updated borrowinglist :" + bwl.toString());
+       
+        ArrayList<BorrowingList> bArray = new ArrayList<BorrowingList>();
+       System.out.println("Added to borrowing list : " + bArray.add(bwl));
+        System.out.println(bArray.toString());
+//                             String lineaResult9 = myl.registerBorrow(borrowed, waitinglist, bookid, studentId);
+//                            System.out.println("\n" + lineaResult9);
                     break;
 // 
                 // Case
                 case 6:
 //                obStudent.showAllStudents();
+        Scanner myInput = new Scanner(System.in);
+//        String borrowID, String studentId, String bookid;
+//        System.out.println("Input book ID");
+//          bookid = myInput.nextLine();
+//        System.out.println("Input student ID:");
+//        studentId = myInput.nextLine();
+//
+//        for (BorrowingList bwl : borrowed) {
+//            if (bwl.getBookid().equals(bookid) && bwl.isBorrowed()== true) {
+//                
+//                System.out.println("Book is already borrowed.");
+//                System.out.println("Please add the student to the waiting list.");
+//                
+//                 WaitingList wl = new WaitingList();
+//                    wl.Enqueue(studentId);
+//                    System.out.println("added to the waiting list.");
+//                    return;
+//                } else {
+//                    return;
+//                }
+//            }
+        
                     break;
 // 
                 // Case
@@ -226,8 +283,8 @@ public class LibraryMenu {
             }
 
 // 
-//        // Checking condition at last where we are
-//        // checking case entered value is not zero
+//       
+//        // until input=0(exit), menu repeats
 //    
         } while (choice != 0);
 

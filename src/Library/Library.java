@@ -28,6 +28,8 @@ import java.util.logging.Logger;
 public class Library {
 
     
+
+    
     //attribute as arraylists  from Model class 
     private ArrayList<Book> books; //data need to be read from csv  //changed from booklist
     private ArrayList<Student> students;//data  read from txt or random generate? //changed from studentlist
@@ -47,22 +49,25 @@ public class Library {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-//
-////Search    
-//     InputUtilsLB myInput = new InputUtilsLB(); 
-//        //search by first name
+
+//Search    
+     InputUtilsLB myInput = new InputUtilsLB(); 
+        //search by first name
 //        String calling1 = myInput.getUserText("Which author would you like to search?");
 //               SearchFile s1 = new SearchFile(calling1);
-////        System.out.println(s1);
+//        System.out.println(s1);
 
  //show menu      
-//        LibraryMenu lmenu= new LibraryMenu ();
-//        
-//       //ask password- anything above 4 letters/numbers are fine
-//       lmenu.password();
-//       
-//       //show option menu
-//       lmenu.optionSwitch(); 
+        LibraryMenu lmenu= new LibraryMenu ();
+        
+       //ask password- anything above 4 letters/numbers are fine
+       lmenu.password();
+       
+       //show option menu
+       lmenu.optionSwitch();
+       
+       Library mly = new Library();
+     
        
 //Read files  --> inside Library menu
 //        Readfiles RF = new Readfiles(); //?new Readfiles is better?
@@ -74,7 +79,7 @@ public class Library {
 //        ArrayList<Student> students = RF.loadData2();//store the Studentrecord 
 ////               SearchFile s1 = new SearchFile(calling1);         
 
-        InputUtilsLB myInput = new InputUtilsLB();
+//        InputUtilsLB myInput = new InputUtilsLB();
 //   BorrowingList     test
 //        System.out.println(books.get(7).getBook_title());
 //        books.get(6).getAuthor_first_name();
@@ -82,20 +87,24 @@ public class Library {
 //   BorrowingList     test   
         BorrowingList bwl = new BorrowingList();
          System.out.println("This is the empty borrowinglist :" + bwl.toString());
-         
-  
-        //check borrowed status
-        boolean register1 = bwl.isBorrowed();
-        System.out.println(" Is this book borrowed?" +register1);
-        
-        //abut borrowing
+//         
+//  
+//        //check borrowed status
+//        boolean register1 = bwl.isBorrowed();
+//        System.out.println(" Is this book borrowed?" +register1);
+//        
+//        //abut borrowing
        String calling4 = myInput.getUserText("Input book ID");
        bwl.setBookid(calling4);//want to add book to borrowing list for specific student
        
        String calling5 = myInput.getUserText("Input student ID");
        bwl.setStudentId(calling5);//want to add book to borrowing list for specific student
+//  　doesn't work     
+//          String calling6 = myInput.getUserText("Input student ID"); 
+//    String calling7 = myInput.getUserText("Input book ID");  
+//  bwl.registerBorrowing(calling6, calling7);
        
-       
+ 
        //generate BorrowID for this student
        bwl.generateBorrowID();
        
@@ -107,22 +116,26 @@ public class Library {
        System.out.println("This is the updated borrowinglist :" + bwl.toString());
        
         ArrayList<BorrowingList> bArray = new ArrayList<BorrowingList>();
-       System.out.println("Added to borrowing list" + bArray.add(bwl));
+       System.out.println("Added to borrowing list!" + bArray.add(bwl));
         System.out.println(bArray.toString());
-       
-       
+          WaitingList WL = new WaitingList();
+//       mly.registerBorrow(bArray, calling4, calling5);
        
        
        
        //other student want to borrrow same book
        
        //book returned
-       bwl.returned(); 
+//       bwl.returned(); 
        System.out.println("Book returned " );
        
       //show the borrowinglist again
        System.out.println("This is the updated borrowinglist :" + bwl.toString());
        
+//       Library myl = new Library();
+//       myl.registerBorrow();
+       
+
        
        
 //       
@@ -269,8 +282,33 @@ public class Library {
 //}
     }
     
+// Register borrowing
+    public  void registerBorrow(ArrayList<BorrowingList> borrowed, String bookid, String studentId) {
+        Library myl = new Library();
+        
+        Scanner myInput = new Scanner(System.in);
+//        String borrowID, String studentId, String bookid;
+//        System.out.println("Input book ID");
+//        bookid = myInput.nextLine();
+//        System.out.println("Input student ID:");
+        studentId = myInput .nextLine();
 
-    
+        for (BorrowingList bwl : borrowed) {
+            if (bwl.getBookid().equals(bookid) && bwl.isBorrowed()== true) {
+                
+                System.out.println("Book is already borrowed.");
+                System.out.println("Please add the student to the waiting list.");
+                borrowed.add(bwl);
+                 WaitingList wl = new WaitingList();
+                    wl.Enqueue(studentId);
+                    System.out.println("added to the waiting list.");
+//                    return;
+                } else {
+//                    return;
+                }
+            }
+        }
+ 
 }
 
 
