@@ -57,7 +57,7 @@ public class Library {
        //ask password - anything above 4 letters/numbers are fine
         lmenu.password();
 
-        //show option menu 
+        //show option menu here
         lmenu.optionSwitch();
 
     }
