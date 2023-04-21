@@ -90,10 +90,10 @@ public class BorrowingList {
 //        
         String studentId = students.get(studentIndex - 1).getStudentId();
         String bookid = books.get(bookIndex - 1).getId();
-//            
-        System.out.println("Registered in borrowing book : " + studentId + bookid);
+//           
+        System.out.println("Registered in borrowing list : " + studentId + bookid);
 
-        System.out.println(getStudentId() + " has borrowed " + getBookid());
+        System.out.println(getStudentId() + "  borrowed " + getBookid());
         return null;
 
     }
