@@ -145,16 +145,16 @@ public class LibraryMenu {
 
                 // Sort
                 case 2:
-                    Sorting bubble = new Sorting();
+                    Sorting bubble = new Sorting(); //new object
 
-                    Book[] bookArr = new Book[books.size()];
-
+                    Book[] bookArr = new Book[books.size()]; // creating array of books
+                    //for loops to get every book for the new array
                     for (int i = 0; i < books.size(); i++) {
 
                         bookArr[i] = books.get(i);
                     }
-                    bubble.bubbleSort(bookArr);
-
+                    bubble.bubbleSort(bookArr); //calling method to sort the array
+                    //looping through the sorted array to get what's needed
                     for (Book b : bookArr) {
                         System.out.println("Title: " + b.getBook_title());
                         System.out.println(" Written By : " + b.getAuthor_first_name() + " " + b.getAuthor_last_name());
@@ -189,14 +189,16 @@ public class LibraryMenu {
                 // Sort
 //             // Case
                 case 4:
-                    Sorting insert = new Sorting();
+                    Sorting insert = new Sorting(); //new object
 
-                    Student[] studentArr = new Student[students.size()];
+                    Student[] studentArr = new Student[students.size()]; //creating new object for array of students
+                    //for to get every student for the new array
                     for (int i = 0; i < students.size(); i++) {
-                        studentArr[i] = students.get(i);
+                        studentArr[i] = students.get(i);//populates student
                     }
-                    insert.insertionSort(studentArr);
-                    Student student = null;
+                    insert.insertionSort(studentArr); //calling method
+                    Student student = null;         //new object to hold the student which is being processed
+                    //loops through sorted array
                     for (Student s : studentArr) {
                         if (student == null || !student.toStringfirstName().equals(s.toStringfirstName())) {
                             System.out.println("Student first Name: " + s.toStringfirstName());
@@ -204,6 +206,7 @@ public class LibraryMenu {
 
                         }
                         student = s;
+
                     }
                     break;
 
@@ -230,7 +233,7 @@ public class LibraryMenu {
 
                     //show the borrowinglist again
                     System.out.println("This is the updated borrowinglist :" + bwl.toString());
-                    
+
                     //borrowing list added to borrowing Array List
                     ArrayList<BorrowingList> bArray = new ArrayList<BorrowingList>();
                     System.out.println("Added to borrowing list : " + bArray.add(bwl));
@@ -246,13 +249,12 @@ public class LibraryMenu {
                         bwl.setStudentId(calling9);
                         wl.Enqueue(calling9);//add the student to waiting list
                         System.out.println("This book is not available. Added to the waiting list.");
-                        
-                        
+
                     } else {
                         System.out.println("This is available.Plese register borrowing");
-                        
+
                     }
-            
+
                     break;
 // 
                 // Case returned a book
