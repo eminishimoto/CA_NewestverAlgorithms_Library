@@ -12,12 +12,12 @@ public class BorrowingList {
 
 
     //attributs
-    private int borrowId;//to track history
+    private int borrowId;//unique id
     private String studentId;
     private String bookid;
-    private boolean borrowed; // should be indivisual class? or Book class?
-    private int borrowed_date;//no need?
-    private int returned_date;//no need?   
+    private boolean borrowed; // to check borrow or not
+    private int borrowed_date;//
+    private int returned_date;//  
 
     private static int currentBorrowIdNumber = 0; //
 
@@ -27,8 +27,8 @@ public class BorrowingList {
         this.studentId = studentId;
         this.bookid = bookid;
         this.borrowed = false; //at first, every book are not borrowed
-//        this.borrowed_date = borrowed_date;
-//        this.returned_date = returned_date;
+        this.borrowed_date = borrowed_date;
+        this.returned_date = returned_date;
 
     }
 
@@ -95,9 +95,7 @@ public class BorrowingList {
 
         System.out.println(getStudentId() + " has borrowed " + getBookid());
         return null;
-//       
-//            waitingQueue.addStudent(student);
-//            System.out.println(student.getName() + " is added to the waiting queue for " + getTitle());
+
     }
 
     public String registerBorrowing(String id_reader, String id_book) {

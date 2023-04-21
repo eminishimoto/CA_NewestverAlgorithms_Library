@@ -230,7 +230,8 @@ public class LibraryMenu {
 
                     //show the borrowinglist again
                     System.out.println("This is the updated borrowinglist :" + bwl.toString());
-
+                    
+                    //borrowing list added to borrowing Array List
                     ArrayList<BorrowingList> bArray = new ArrayList<BorrowingList>();
                     System.out.println("Added to borrowing list : " + bArray.add(bwl));
                     System.out.println(bArray.toString());
@@ -240,18 +241,18 @@ public class LibraryMenu {
                 // Case  add to waiting list
                 case 6:
 //             
-                    if (bwl.isBorrowed() == true) {
+                    if (bwl.isBorrowed() == true) { //if the book borrowed
                         String calling9 = myInput.getUserText("Input student ID");
                         bwl.setStudentId(calling9);
-                        wl.Enqueue(calling9);
+                        wl.Enqueue(calling9);//add the student to waiting list
                         System.out.println("This book is not available. Added to the waiting list.");
-                        System.out.println(wl.isEmpty());
-                        return;
+                        
+                        
                     } else {
                         System.out.println("This is available.Plese register borrowing");
-
+                        
                     }
-
+            
                     break;
 // 
                 // Case returned a book

@@ -15,13 +15,7 @@ public class WaitingList implements Queue {
     private int back; //index of the back element
 
     //constructor
-//    public WaitingList() {
-//        this.capacity = capacity;
-//        this.data = new String[capacity];
-//        this.queueSize = 0;
-//        this.front = -1;
-//        this.back = -1;
-//    }
+
     public WaitingList() {
         this.capacity = this.capacity; //limits
         this.data = new String[capacity];
